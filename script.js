@@ -14,7 +14,7 @@ const addUser = () => {
         return;
     }
 
-    user = {id: userCounter, firstName, lastName, phone};
+    const user = {id: userCounter, firstName, lastName, phone};
     userList.push(user);
 
     tableBody.innerHTML = " ";
