@@ -9,19 +9,22 @@
 <body>
     <main class="container">
         <div class="my-5">   
-            <input type="text" class="form-control mb-3 w-25" id="nameInput" placeholder="Ime i prezime">
+            <input type="text" class="form-control mb-3 w-25" id="firstNameInput" placeholder="Ime">
+            <input type="text" class="form-control mb-3 w-25" id="lastNameInput" placeholder="Prezime">
             <input type="text" class="form-control mb-3 w-25" id="phoneInput" placeholder="Broj telefona">
             <button type="button" class="btn btn-primary" onclick="addUser()">Dodaj korisnika</button>  
         </div>
         <div class="row">
-            <table class="table" id="userTable">
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Ime i prezime</th>
+                        <th scope="col">Ime</th>
+                        <th scope="col">Prezime</th>
                         <th scope="col">Broj telefona</th>
                     </tr>
                 </thead>
+                <tbody id="tableBody"></tbody>
             </table>
         </div>
     </main>

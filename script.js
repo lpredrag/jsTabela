@@ -1,11 +1,12 @@
 let userCounter = 0;
 const userList = [];
-const userTable = document.getElementById("userTable");
+const tableBody = document.getElementById("tableBody");
 
 const addUser = () => {
-    const name = document.getElementById("nameInput").value.trim();
+    const firstName = document.getElementById("firstNameInput").value.trim();
+    const lastName = document.getElementById("lastNameInput").value.trim();
     const phone = document.getElementById("phoneInput").value.trim();
-    if (!name || !phone) {
+    if (!firstName || !lastName || !phone) {
         return;
     }
     if (userList.some(user => user.phone === phone)) {
@@ -13,15 +14,20 @@ const addUser = () => {
         return;
     }
 
-    user = {name, phone};
+    user = {id: userCounter, firstName, lastName, phone};
     userList.push(user);
 
-    const row = userTable.insertRow();
-    const numCell = row.insertCell(0);
-    const nameCell = row.insertCell(1);
-    const phoneCell = row.insertCell(2);
-    numCell.innerHTML = userCounter;
-    nameCell.innerHTML = name;
-    phoneCell.innerHTML = phone;
+    tableBody.innerHTML = " ";
+    userList.forEach(user => {
+        const row = tableBody.insertRow();
+        const numCell = row.insertCell(0);
+        const firstNameCell = row.insertCell(1);
+        const lastNameCell = row.insertCell(2)
+        const phoneCell = row.insertCell(3);
+        numCell.innerHTML = user.id;
+        firstNameCell.innerHTML = user.firstName;
+        lastNameCell.innerHTML = user.lastName;
+        phoneCell.innerHTML = user.phone;
+    });
     userCounter++;
 }
